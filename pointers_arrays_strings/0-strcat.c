@@ -1,3 +1,10 @@
+#include "main.h"
+/**
+ *_strcat- concats 2 strings
+ *@dest: char
+ *@src: char;
+ *Return: char
+ */
 char* strcat(char *a, char *b) {
     while (*a++);
     a--;
