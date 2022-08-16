@@ -5,17 +5,24 @@
  *@src: char;
  *Return: char
  */
-char* strcat(char *a, char *b) {
-    while (*a++);
-    a--;
-    while (*a++ = *b++);
-    return a;
+
+char *_strcat(char *dest, char *src)
+{
+int length = 0;
+while (*dest != '\0')
+{
+	dest++;
+	length++;
 }
+while (*src)
+{
+*dest = *src;
+dest++;
+src++;
+length++;
 
-char *str_a = "a string";
-char *str_b = "a long long long string";
-char *str_c = "yet another string";
-char *result;
-
-result = strcat(str_a, str_b);
-result = strcat(result, str_c);
+}
+*(dest + 1) = '\0';
+dest = dest - length;
+return (dest);
+}
