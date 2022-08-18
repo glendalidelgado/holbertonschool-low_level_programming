@@ -1,51 +1,22 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- * print_number - prints an integar
- * @n:int
- * Return: void
+ * print_number - prints an integer
+ * @n:.input integer parameter
+ *
+ *
  */
-
 void print_number(int n)
 {
-	unsigned int nc, nx;
-	unsigned int div = 1;
-	unsigned int places = 0;
-	unsigned int digit;
-	unsigned int x;
+	unsigned int i = n;
 
-	if (n == 0)
-	{
-		_putchar('0');
-		return;
-	}
-	if (n > 0)
-	{
-		nc = nx = n;
-	}
 	if (n < 0)
 	{
-		nc = nx = -n;
-		_putchar('-');
+		_putchar(45);
+		i = -i;
 	}
-	while (nx > 0)
+	if (i / 10)
 	{
-		nx = nx / 10;
-		places++;
+		print_number(i / 10);
 	}
-	for (x = 1; x < places; x++)
-	{
-		div = div * 10;
-	}
-	for (x = 0; x < places; x++)
-	{
-		digit = nc / div;
-		if (digit > 9)
-			digit = digit % 10;
-
-		_putchar(digit + '0');
-
-		div = div / 10;
-	}
+	_putchar(i % 10 + '0');
 }
