@@ -1,22 +1,33 @@
 #include "main.h"
-/**
- * print_number - prints an integer
- * @n:.input integer parameter
- *
- *
- */
-void print_number(int n)
-{
-	unsigned int i = n;
 
-	if (n < 0)
+/**
+ * rot13 - function with 1 argument
+ * @str: char type pointer argument
+ *
+ * Description: encodes rot13 with a string
+ * Return: string value
+ */
+char *rot13(char *str)
+{
+	char *input, *output;
+	int count, count2;
+
+	input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	count = 0;
+	while (str[count] != '\0')
 	{
-		_putchar(45);
-		i = -i;
+		count2 = 0;
+		while (input[count2] != '\0')
+		{
+			if (str[count] == input[count2])
+			{
+				str[count] = output[count2];
+				break;
+			}
+			count2++;
+		}
+		count++;
 	}
-	if (i / 10)
-	{
-		print_number(i / 10);
-	}
-	_putchar(i % 10 + '0');
+	return (str);
 }
